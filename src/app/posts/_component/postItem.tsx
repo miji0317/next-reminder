@@ -16,7 +16,7 @@ const PostItem = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 60rem;
+  max-width: 60rem;
 `;
 
 const ThumbnailBox = styled(Image)`

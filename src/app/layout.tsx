@@ -1,6 +1,7 @@
-import './globals.css';
+import type { Metadata } from 'next';
+import CommonLayout from './_component/CommonLayout';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'B comma',
   description: 'By JOY',
   icons: {
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <CommonLayout />
+        {children}
+      </body>
     </html>
   );
 }
