@@ -1,18 +1,22 @@
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { fonts } from '@/styles/fonts';
 import { colors } from '@/styles/colors';
 import { media } from '@/styles/media';
-import Thumbnail from '../../../../public/thumbnail2.png';
+import { postType } from '@/static/postList';
 
-export default function Posts() {
+type Props = {
+  post: postType;
+};
+
+export default function Posts({ post }: Props) {
   return (
     <PostItemWrap>
-      <Date>YYYY.MM.DD</Date>
+      <Date>{post.createdAt}</Date>
       <PostItem className="mousePointer">
-        <ThumbnailBox src={Thumbnail} alt="썸네일" />
-        <Title>타이틀</Title>
-        <Content>fwjkerfbuksrbfuker bfbdsjfcsdhbfujhfjksdbfsbkjfbsjkfcjksbkjbi</Content>
+        {post.image && <ThumbnailBox src={post.image} alt="썸네일" />}
+        <Title>{post.title}</Title>
+        <Content>{post.content}</Content>
       </PostItem>
     </PostItemWrap>
   );
