@@ -1,5 +1,5 @@
 // color palette
-export const color = {
+export const colors = {
   // pink
   DarkPink: 'rgb(249, 153, 183)',
   NormalPink: 'rgb(249, 197, 213)',

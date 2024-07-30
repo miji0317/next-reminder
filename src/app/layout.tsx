@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CommonLayout from './_component/CommonLayout';
 
 export const metadata: Metadata = {
-  title: 'B comma',
+  title: "B'",
   description: 'By JOY',
   icons: {
     icon: '/logo.png'

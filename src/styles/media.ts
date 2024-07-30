@@ -13,10 +13,7 @@ export const breakPoints: Viewport = {
 };
 
 export const media: Media = {
-  mobile: `(min-width: ${breakPoints.mobile}px)`,
-  tablet: `(min-width: ${breakPoints.tablet}px)`,
-  laptop: `(min-width: ${breakPoints.laptop}px)`,
-
-  small: `(max-width: ${breakPoints.tablet}px)`,
-  large: `(min-width: ${breakPoints.tablet + 0.1}px)`
+  small: `screen and (max-width: ${breakPoints.mobile}px)`,
+  regular: `screen and (max-width: ${breakPoints.tablet}px)`,
+  large: `screen and (min-width: ${breakPoints.tablet + 0.1}px)`
 };

@@ -1,7 +1,7 @@
 import { IconContext } from 'react-icons';
 import { MdAccountCircle } from 'react-icons/md';
 import styled from 'styled-components';
-import { color } from '@/styles/colors';
+import { colors } from '@/styles/colors';
 
 type Props = {
   size: string | number | undefined;
@@ -9,7 +9,7 @@ type Props = {
 
 export default function DefaultProifle({ size }: Props) {
   return (
-    <ReactIcon color={color.DarkGray} hoverColor={color.Black}>
+    <ReactIcon color={colors.DarkGray} hoverColor={colors.Black}>
       <MdAccountCircle size={size} />
     </ReactIcon>
   );

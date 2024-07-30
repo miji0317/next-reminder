@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import DefaultProifle from './DefaultProfile';
 import { fonts } from '@/styles/fonts';
+import { colors } from '@/styles/colors';
 
 export default function Header() {
   return (
-    <HeaderLayout className="defaultPadding">
+    <HeaderLayout>
       <LeftArea className="mousePointer">
         <Logo size={'4rem'} />
-        B,Comma
       </LeftArea>
       <RightArea className="mousePointer">
         <DefaultProifle size={'4rem'} />
@@ -24,6 +24,7 @@ const HeaderLayout = styled.div`
   align-items: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  border-bottom: 1px solid ${colors.NormalGray};
 `;
 
 const HorizontalWrap = styled.div`
@@ -34,8 +35,6 @@ const HorizontalWrap = styled.div`
 
 const LeftArea = styled(HorizontalWrap)`
   justify-content: flex-start;
-  font-size: 3rem;
-  font-weight: ${fonts.heavy};
 `;
 
 const RightArea = styled(HorizontalWrap)`
