@@ -1,13 +1,15 @@
 'use client';
-import Posts from './posts/page';
+
 import styled from 'styled-components';
 import { fonts } from '@/styles/fonts';
 import { color } from '@/styles/colors';
+import Header from './_component/Header';
+import Posts from './posts/page';
 
 export default function Home() {
   return (
     <Main>
-      <Title>Blog</Title>
+      <Header />
       <Posts />
     </Main>
   );
@@ -20,6 +22,10 @@ const Main = styled.div`
   align-items: center;
   min-height: 100dvh;
   min-width: 100dvw;
+
+  & > * + * {
+    margin-top: 2rem;
+  }
 `;
 
 const Title = styled.p`

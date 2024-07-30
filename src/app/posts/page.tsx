@@ -3,7 +3,7 @@ import PostItem from './_component/postItem';
 
 export default function Posts() {
   return (
-    <PostLayout>
+    <PostLayout className="defaultPadding">
       <PostItem />
     </PostLayout>
   );

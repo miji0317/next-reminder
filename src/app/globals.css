@@ -16,6 +16,17 @@ a {
   text-decoration: none;
 }
 
+/* 마우스 포인터 */
+.mousePointer {
+  cursor: pointer;
+}
+
+/* 사이드 여백 */
+.defaultPadding {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
