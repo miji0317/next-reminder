@@ -1,5 +1,5 @@
-import { MdAccountCircle } from 'react-icons/md';
 import styled from 'styled-components';
+import { VscAccount } from 'react-icons/vsc';
 import { colors } from '@/styles/colors';
 
 type Props = {
@@ -8,13 +8,13 @@ type Props = {
 
 export default function DefaultProifle({ size }: Props) {
   return (
-    <ReactIcon color={colors.DarkGray}>
-      <MdAccountCircle size={size} />
-    </ReactIcon>
+    <IconWrapper color={colors.Black}>
+      <VscAccount size={size} />
+    </IconWrapper>
   );
 }
 
-const ReactIcon = styled.div<{ color?: string; hoverColor?: string }>`
+const IconWrapper = styled.div<{ color?: string; hoverColor?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;

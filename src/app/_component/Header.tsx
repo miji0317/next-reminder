@@ -1,17 +1,23 @@
+'use client';
+
 import styled from 'styled-components';
 import Logo from './Logo';
 import DefaultProifle from './DefaultProfile';
-import { fonts } from '@/styles/fonts';
+import { useWindowSize } from '@/hooks/useWindowSize';
 import { colors } from '@/styles/colors';
+import { breakPoints } from '@/styles/media';
 
 export default function Header() {
+  const size = useWindowSize();
+  const isPC = size.width > breakPoints.tablet;
+
   return (
     <HeaderLayout>
       <LeftArea className="mousePointer">
-        <Logo size={'4rem'} />
+        <Logo size={isPC ? '4rem' : '2.5rem'} />
       </LeftArea>
       <RightArea className="mousePointer">
-        <DefaultProifle size={'4rem'} />
+        <DefaultProifle size={isPC ? '4rem' : '3rem'} />
       </RightArea>
     </HeaderLayout>
   );
