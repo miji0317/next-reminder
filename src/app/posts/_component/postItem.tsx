@@ -1,5 +1,8 @@
+'use client';
+
 import styled from 'styled-components';
 import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/navigation';
 import { fonts } from '@/styles/fonts';
 import { colors } from '@/styles/colors';
 import { media } from '@/styles/media';
@@ -10,8 +13,13 @@ type Props = {
 };
 
 export default function Posts({ post }: Props) {
+  const router = useRouter();
+  const openPostDetail = () => {
+    router.push(`/posts/${post.postId}`);
+  };
+
   return (
-    <PostItemWrap>
+    <PostItemWrap onClick={openPostDetail}>
       <Date>{post.createdAt}</Date>
       <PostItem className="mousePointer">
         {post.image && <ThumbnailBox src={post.image} alt="썸네일" />}
