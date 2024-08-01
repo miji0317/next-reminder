@@ -93,6 +93,7 @@ const PostImage = styled(Image)`
   width: 80%;
   height: auto;
   object-fit: contain;
+  padding: 5rem 0;
 
   @media ${media.small} {
     width: 100%;

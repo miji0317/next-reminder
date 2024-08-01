@@ -12,7 +12,7 @@ type Props = {
   post: postType;
 };
 
-export default function Posts({ post }: Props) {
+export default function PostItem({ post }: Props) {
   const router = useRouter();
   const openPostDetail = () => {
     router.push(`/posts/${post.postId}`);
@@ -21,11 +21,11 @@ export default function Posts({ post }: Props) {
   return (
     <PostItemWrap onClick={openPostDetail}>
       <Date>{post.createdAt}</Date>
-      <PostItem className="mousePointer">
+      <PostView className="mousePointer">
         {post.image && <ThumbnailBox src={post.image} alt="썸네일" />}
         <Title>{post.title}</Title>
         <Content>{post.content}</Content>
-      </PostItem>
+      </PostView>
     </PostItemWrap>
   );
 }
@@ -36,7 +36,7 @@ const PostItemWrap = styled.div`
   padding: 2rem 0;
 `;
 
-const PostItem = styled.div`
+const PostView = styled.div`
   width: 100%;
 
   @media ${media.large} {
@@ -92,8 +92,12 @@ const Title = styled.p`
 const Content = styled.p`
   color: ${colors.DarkGray};
   font-weight: ${fonts.light};
-  white-space: pre-wrap;
-  word-break: break-word;
+  // 말줄임
+  // max-height: 5rem;
+  // overflow: hidden;
+  // white-space: nowrap;
+  // word-break: break-word;
+  // text-overflow: ellipsis;
 
   @media ${media.large} {
     font-size: 1.5rem;
