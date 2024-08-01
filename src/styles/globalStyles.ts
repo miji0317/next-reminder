@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { media } from './media';
+import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -13,19 +14,38 @@ export const GlobalStyle = createGlobalStyle`
     min-width: 100dvw;
     min-height: 100dvh;
     overflow-x: hidden;
-    font-size: 10px;
+    overflow-y: scroll;
+    font-size: 10px; // 1rem = 10px
     font-family: 'Pretendard-Regular';
   }
   a {
     text-decoration: none;
   }
 
-  /* 마우스 포인터 */
+  // 스크롤바 커스텀
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: ${colors.NormalGray};
+  }
+  body::-webkit-scrollbar-thumb { 
+    background-color: ${colors.LightPink};
+  }
+  body::-webkit-scrollbar-button {
+    display: none;
+  }
+  body::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+  }
+
+  // 마우스 포인터
   .mousePointer {
     cursor: pointer;
   }
 
-  /* 사이드 여백 */
+  // 사이드 기본 여백
   .defaultPadding {
     @media ${media.large} {
     padding-left: 10rem;
