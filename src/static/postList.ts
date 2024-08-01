@@ -3,7 +3,8 @@ import Thumbnail1 from '../../public/thumbnail1.png';
 import Thumbnail2 from '../../public/thumbnail2.png';
 
 export type postType = {
-  postId: number;
+  postId: number | string;
+  userId: string;
   title: string;
   content: string;
   image: StaticImageData;
@@ -12,7 +13,7 @@ export type postType = {
 
 export const postList = [
   {
-    postId: 1,
+    postId: 'unknown_1',
     userId: 'unknown',
     title: '블로그1',
     content:
@@ -21,7 +22,7 @@ export const postList = [
     createdAt: '2024-07-31'
   },
   {
-    postId: 2,
+    postId: 'unknown_2',
     userId: 'unknown',
     title: '블로그2',
     content:
@@ -30,7 +31,7 @@ export const postList = [
     createdAt: '2024-07-15'
   },
   {
-    postId: 3,
+    postId: 'unknown_3',
     userId: 'unknown',
     title: '블로그3',
     content:

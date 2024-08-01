@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import Logo from './Logo';
+import Logo from './icon/Logo';
 import DefaultProifle from './DefaultProfile';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { colors } from '@/styles/colors';
