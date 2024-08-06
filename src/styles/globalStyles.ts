@@ -45,6 +45,11 @@ export const GlobalStyle = createGlobalStyle`
     max-width: ${breakPoints.tablet}px;
     min-height: 100dvh;
     margin: 0 auto;
+
+    @media ${media.regular} {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
   }
 
   // 마우스 포인터

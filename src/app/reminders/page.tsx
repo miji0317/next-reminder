@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { colors } from '@/styles/colors';
+import { media } from '@/styles/media';
+import { fonts } from '@/styles/fonts';
 import RemindItem from './_component/RemindItem';
 import { remindList, remindType } from '@/static/remindList';
 import dayjs from 'dayjs';
@@ -42,9 +44,29 @@ export default function Reminders() {
   }, []);
 
   return (
-    <RemindersList>{reminds && reminds.map((remind) => <RemindItem key={remind.id} remind={remind} />)}</RemindersList>
+    <>
+      <ListTitle>리마인더 목록</ListTitle>
+      <RemindersList>
+        {reminds && reminds.map((remind) => <RemindItem key={remind.id} remind={remind} />)}
+      </RemindersList>
+    </>
   );
 }
+
+const ListTitle = styled.p`
+  color: ${colors.Black};
+  font-weight: ${fonts.bold};
+
+  @media ${media.large} {
+    font-size: 3rem;
+    padding: 3rem 0 1.5rem 0;
+  }
+
+  @media ${media.regular} {
+    font-size: 2.5rem;
+    padding: 2rem 0 1rem 0;
+  }
+`;
 
 const RemindersList = styled.div`
   display: flex;
