@@ -1,5 +1,5 @@
-import Posts from './posts/page';
+import Reminders from './reminders/page';
 
 export default function Home() {
-  return <Posts />;
+  return <Reminders />;
 }

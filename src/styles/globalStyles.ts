@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { media } from './media';
+import { media, breakPoints } from './media';
 import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
@@ -38,6 +38,13 @@ export const GlobalStyle = createGlobalStyle`
   body::-webkit-scrollbar-track,
   body::-webkit-scrollbar-thumb {
       border-radius: 5px;
+  }
+
+  // 최상단 레이어
+  .topLayer {
+    max-width: ${breakPoints.tablet}px;
+    min-height: 100dvh;
+    margin: 0 auto;
   }
 
   // 마우스 포인터

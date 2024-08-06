@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <CommonLayout />
-        {children}
+        <div className="topLayer">{children}</div>
       </body>
     </html>
   );
