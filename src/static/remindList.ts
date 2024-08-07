@@ -10,7 +10,7 @@ export const remindList = [
     id: '1',
     content: 'typescript',
     createdAt: '2024-08-06 13:00',
-    remindAt: '2024-08-07 15:00'
+    remindAt: '2024-08-09 15:00'
   },
   {
     id: '2',
@@ -23,5 +23,18 @@ export const remindList = [
     content: 'next api',
     createdAt: '2024-08-10 12:00',
     remindAt: '2024-08-11 12:00'
+  },
+
+  {
+    id: '4',
+    content: 'styled component',
+    createdAt: '2024-08-07 10:00',
+    remindAt: '2024-08-015 18:30'
+  },
+  {
+    id: '5',
+    content: 'javascript',
+    createdAt: '2024-08-10 12:00',
+    remindAt: '2024-08-15 19:00'
   }
 ];
