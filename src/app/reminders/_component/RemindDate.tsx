@@ -32,13 +32,13 @@ const DateWrap = styled.div`
 `;
 
 const At = styled.p`
-  color: ${colors.Black};
-  font-weight: ${fonts.light};
+  color: ${colors.DeepPrimary};
+  font-weight: ${fonts.bold};
   font-size: 1.3rem;
 `;
 
 const AtLine = styled.div`
   flex: 1;
   height: 1px;
-  background-color: ${colors.DarkGray};
+  background-color: ${colors.DeepPrimary};
 `;

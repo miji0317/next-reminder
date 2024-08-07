@@ -6,6 +6,7 @@ import { fonts } from '@/styles/fonts';
 import { colors } from '@/styles/colors';
 import { media } from '@/styles/media';
 import { remindType } from '@/static/remindList';
+import Clock from '@/app/_component/icon/Clock';
 import dayjs from 'dayjs';
 
 type Props = {
@@ -24,24 +25,33 @@ export default function RemindItem({ remind }: Props) {
   const minute = remindDate.get('minute');
   const formatHour = String(hour).length === 1 ? `0${hour}` : hour;
   const formatMinute = String(minute).length === 1 ? `0${minute}` : minute;
-  const formatDate = `${formatHour}시 ${formatMinute}분`;
+  const formatDate = `${formatHour}:${formatMinute}`;
 
   return (
     <RemindItemWrap onClick={openRemindDetail} className="mousePointer">
+      <Clock size={'1.5rem'} color={colors.White} />
+      <At>{formatDate}</At>
+      <Divide> | </Divide>
       <Content>{remind.content}</Content>
-      <At> {formatDate} </At>
     </RemindItemWrap>
   );
 }
 
 const RemindItemWrap = styled.div`
   width: 100%;
-  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  color: ${colors.White};
+  background-color: ${colors.NormalPrimary};
+  border-radius: 1.5rem;
+  padding: 1.3rem 1rem;
+  & + & {
+    margin-top: 0.8rem;
+  }
 `;
 
 const Content = styled.p`
-  color: ${colors.DarkGray};
-  font-weight: ${fonts.light};
+  font-weight: ${fonts.normal};
 
   @media ${media.large} {
     font-size: 1.7rem;
@@ -54,7 +64,11 @@ const Content = styled.p`
 `;
 
 const At = styled.p`
-  color: ${colors.Black};
-  font-weight: ${fonts.light};
+  font-weight: ${fonts.bold};
   font-size: 1.3rem;
+  margin-left: 0.3em;
+`;
+
+const Divide = styled.span`
+  padding: 0 1rem;
 `;

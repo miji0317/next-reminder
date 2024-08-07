@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${colors.NormalGray};
   }
   body::-webkit-scrollbar-thumb { 
-    background-color: ${colors.LightPink};
+    background-color: ${colors.NormalPrimary};
   }
   body::-webkit-scrollbar-button {
     display: none;

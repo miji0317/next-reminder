@@ -52,9 +52,11 @@ export default function Reminders() {
             return (
               <div key={group}>
                 <RemindDate key={group} groupDate={group} />
-                {reminds[group].map((item, idx) => (
-                  <RemindItem key={item.id} remind={item} />
-                ))}
+                <RemindItemWrap>
+                  {reminds[group].map((item, idx) => (
+                    <RemindItem key={item.id} remind={item} />
+                  ))}
+                </RemindItemWrap>
               </div>
             );
           })}
@@ -66,6 +68,7 @@ export default function Reminders() {
 const ListTitle = styled.p`
   color: ${colors.Black};
   font-weight: ${fonts.bold};
+  margin-bottom: 3rem;
 
   @media ${media.large} {
     font-size: 3rem;
@@ -82,4 +85,8 @@ const RemindersList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+const RemindItemWrap = styled.div`
+  padding: 1.2rem 0.8rem;
 `;

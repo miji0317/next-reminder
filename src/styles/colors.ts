@@ -1,9 +1,11 @@
 // color palette
 export const colors = {
-  // pink
-  DarkPink: 'rgb(249, 153, 183)',
-  NormalPink: 'rgb(249, 197, 213)',
-  LightPink: 'rgb(254, 227, 236)',
+  // primary
+  DeepPrimary: 'rgb(51, 130, 117)',
+  DarkPrimary: 'rgb(85, 173, 155)',
+  NormalPrimary: 'rgb(149, 210, 179)',
+  LightPrimary: 'rgb(216, 239, 211)',
+  BackPrimary: 'rgb(241, 248, 232)',
 
   // black
   Black: 'rgb(50, 50, 50)',
