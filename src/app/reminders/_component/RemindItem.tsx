@@ -1,6 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { fonts } from '@/styles/fonts';
 import { colors } from '@/styles/colors';
@@ -28,7 +29,7 @@ export default function RemindItem({ remind }: Props) {
   const formatDate = `${formatHour}:${formatMinute}`;
 
   return (
-    <RemindItemWrap onClick={openRemindDetail} className="mousePointer">
+    <RemindItemWrap href={`/reminders/${remind.id}`} className="mousePointer">
       <Clock size={'1.5rem'} color={colors.White} />
       <At>{formatDate}</At>
       <Divide> | </Divide>
@@ -37,7 +38,7 @@ export default function RemindItem({ remind }: Props) {
   );
 }
 
-const RemindItemWrap = styled.div`
+const RemindItemWrap = styled(Link)`
   width: 100%;
   display: flex;
   align-items: center;

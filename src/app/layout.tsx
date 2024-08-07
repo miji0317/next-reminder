@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ReactNode } from 'react';
 import CommonLayout from './_component/CommonLayout';
 
 export const metadata: Metadata = {
@@ -9,16 +10,17 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type Props = { children: ReactNode; modal: ReactNode };
+
+export default function RootLayout({ children, modal }: Props) {
   return (
     <html lang="ko">
       <body>
         <CommonLayout />
-        <div className="topLayer">{children}</div>
+        <div className="topLayer">
+          {children}
+          {modal}
+        </div>
       </body>
     </html>
   );
