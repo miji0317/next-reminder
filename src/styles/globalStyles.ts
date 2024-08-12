@@ -59,6 +59,11 @@ export const GlobalStyle = createGlobalStyle`
       padding-left: 5rem;
       padding-right: 5rem;
     }
+
+    @media ${media.small} {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
   }
 
   // 마우스 포인터
