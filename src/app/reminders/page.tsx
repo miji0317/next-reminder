@@ -47,7 +47,7 @@ export default function Reminders() {
   return (
     <>
       <Header>
-        <ListTitle>리마인드 목록</ListTitle>
+        <ListTitle>리마인더 목록</ListTitle>
         <CreateRemind />
       </Header>
 

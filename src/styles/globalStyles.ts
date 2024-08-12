@@ -21,6 +21,15 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  textarea {
+   resize: none;
+  }
+  input, textarea {
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+  }
 
   // 스크롤바 커스텀
   body::-webkit-scrollbar {
