@@ -7,6 +7,7 @@ import { media } from '@/styles/media';
 import { fonts } from '@/styles/fonts';
 import RemindDate from './_component/RemindDate';
 import RemindItem from './_component/RemindItem';
+import CreateRemind from './_component/CreateRemind';
 import { remindList, remindType } from '@/static/remindList';
 import dayjs from 'dayjs';
 
@@ -45,7 +46,11 @@ export default function Reminders() {
 
   return (
     <>
-      <ListTitle>리마인더 목록</ListTitle>
+      <Header>
+        <ListTitle>리마인드 목록</ListTitle>
+        <CreateRemind />
+      </Header>
+
       <RemindersList>
         {reminds &&
           Object.keys(reminds).map((group, idx) => {
@@ -65,19 +70,32 @@ export default function Reminders() {
   );
 }
 
-const ListTitle = styled.p`
-  color: ${colors.Black};
-  font-weight: ${fonts.bold};
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 3rem;
 
   @media ${media.large} {
-    font-size: 3rem;
     padding: 3rem 0 1.5rem 0;
   }
 
   @media ${media.regular} {
-    font-size: 2.5rem;
     padding: 2rem 0 1rem 0;
+  }
+`;
+
+const ListTitle = styled.p`
+  color: ${colors.Black};
+  font-weight: ${fonts.bold};
+
+  @media ${media.large} {
+    font-size: 3rem;
+  }
+
+  @media ${media.regular} {
+    font-size: 2.5rem;
   }
 `;
 

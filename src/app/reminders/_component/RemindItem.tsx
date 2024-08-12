@@ -56,7 +56,6 @@ const Content = styled.p`
 
   @media ${media.large} {
     font-size: 1.7rem;
-    margin-top: 1rem;
   }
 
   @media ${media.regular} {
