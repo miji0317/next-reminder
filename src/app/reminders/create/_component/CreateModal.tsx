@@ -8,6 +8,7 @@ import { media } from '@/styles/media';
 import ModalLayout from '@/app/_component/ModalLayout';
 import InputRemind from '@/app/reminders/create/_component/InputRemind';
 import DatePicker from '@/app/_component/DatePicker';
+import TimePicker from '@/app/_component/TimePicker';
 
 export default function CreateModal() {
   const [content, setContent] = useState<string>('');
@@ -19,6 +20,7 @@ export default function CreateModal() {
         <InputRemind value={content} setStateValue={setContent} />
 
         <DatePicker />
+        {/* <TimePicker /> */}
       </ContentLayer>
     </ModalLayout>
   );
