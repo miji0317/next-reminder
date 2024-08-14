@@ -1,4 +1,4 @@
-import { SiBloglovin } from 'react-icons/si';
+import { TbSchoolBell } from 'react-icons/tb';
 
 type Props = {
   size: string | number | undefined;
@@ -6,5 +6,5 @@ type Props = {
 };
 
 export default function Logo({ size, onClick }: Props) {
-  return <SiBloglovin size={size} onClick={onClick} className="mousePointer" />;
+  return <TbSchoolBell size={size} onClick={onClick} className="mousePointer" />;
 }

@@ -7,6 +7,7 @@ import { colors } from '@/styles/colors';
 import { media } from '@/styles/media';
 import ModalLayout from '@/app/_component/ModalLayout';
 import InputRemind from '@/app/reminders/create/_component/InputRemind';
+import DatePicker from '@/app/_component/DatePicker';
 
 export default function CreateModal() {
   const [content, setContent] = useState<string>('');
@@ -16,6 +17,8 @@ export default function CreateModal() {
       <ContentLayer>
         <Title>새 리마인더</Title>
         <InputRemind value={content} setStateValue={setContent} />
+
+        <DatePicker />
       </ContentLayer>
     </ModalLayout>
   );
@@ -38,4 +41,16 @@ const Title = styled.p`
   @media ${media.regular} {
     font-size: 2rem;
   }
+`;
+
+const DatePickerWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  font-weight: ${fonts.normal};
+  color: ${colors.Black};
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
 `;

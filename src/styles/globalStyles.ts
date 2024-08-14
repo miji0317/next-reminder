@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     box-shadow: none;
     appearance: none;
+    font-family: 'Pretendard-Regular';
   }
 
   // 스크롤바 커스텀
