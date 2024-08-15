@@ -18,9 +18,9 @@ export default function CreateModal() {
       <ContentLayer>
         <Title>새 리마인더</Title>
         <InputRemind value={content} setStateValue={setContent} />
-
         <DatePicker />
-        {/* <TimePicker /> */}
+        <TimePicker />
+        <SaveButton>저장✏️</SaveButton>
       </ContentLayer>
     </ModalLayout>
   );
@@ -28,6 +28,9 @@ export default function CreateModal() {
 
 const ContentLayer = styled.div`
   padding: 1.5rem;
+  & > * + * {
+    margin-top: 1rem;
+  }
 `;
 
 const Title = styled.p`
@@ -45,14 +48,15 @@ const Title = styled.p`
   }
 `;
 
-const DatePickerWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1.2rem;
-  font-weight: ${fonts.normal};
-  color: ${colors.Black};
-  margin-bottom: 1.5rem;
-  margin-top: 0.5rem;
-  gap: 0.5rem;
+const SaveButton = styled.div`
+  height: 4rem;
+  font-size: 1.7rem;
+  font-weight: ${fonts.bold};
+  color: ${colors.White};
+  background-color: ${colors.DarkPrimary};
+  border-radius: 1rem;
+  text-align: center;
+  line-height: 4rem;
+  margin-top: 1rem;
+  cursor: pointer;
 `;

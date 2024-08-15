@@ -6,54 +6,116 @@ import { colors } from '@/styles/colors';
 import { fonts } from '@/styles/fonts';
 
 export default function TimePicker() {
-  const [selectHour, setSelectHour] = useState<number>();
-  const [selectMinute, setSelectMinute] = useState<string>();
-
   const hourList: Array<number> = new Array(24).fill(0).map((_, i) => i);
-  console.log(hourList);
   const minuteList: Array<string> = ['00', '30'];
 
+  const [selectHour, setSelectHour] = useState<number>(0);
+  const [selectMinute, setSelectMinute] = useState<string>('00');
+  const [hourView, setHourView] = useState<boolean>(false);
+  const [minuteView, setMinuteView] = useState<boolean>(false);
+
+  const selectItemAction = (type: string, selectItem: any) => {
+    type === 'hour' ? setSelectHour(selectItem) : setSelectMinute(selectItem);
+    type === 'hour' ? setHourView(false) : setMinuteView(false);
+  };
+
   return (
-    <Wrapper>
-      <TimePickerWrap>
-        {hourList?.map((hour) => (
-          <SelectItem
-            key={hour}
-            className="mousePointer"
-            onClick={() => setSelectHour(hour)}
-            selected={hour === selectHour}
-          >
-            {hour}
-          </SelectItem>
-        ))}
-      </TimePickerWrap>
-      :
-      <TimePickerWrap>
-        {minuteList?.map((minute) => (
-          <SelectItem
-            key={minute}
-            className="mousePointer"
-            onClick={() => setSelectMinute(minute)}
-            selected={minute === selectMinute}
-          >
-            {minute}
-          </SelectItem>
-        ))}
-      </TimePickerWrap>
-    </Wrapper>
+    <Time>
+      <Icon>🕗</Icon>
+      <Container>
+        {/* Hour */}
+        <Wrapper>
+          <TimePickerItem onClick={() => setHourView(!hourView)}>{selectHour}</TimePickerItem>
+          {hourView && (
+            <SelectList>
+              {hourList?.map((hour) => (
+                <SelectItem key={hour} onClick={() => selectItemAction('hour', hour)} selected={hour === selectHour}>
+                  {hour}
+                </SelectItem>
+              ))}
+            </SelectList>
+          )}
+        </Wrapper>
+
+        <Colon>:</Colon>
+
+        {/* Minute */}
+        <Wrapper>
+          <TimePickerItem onClick={() => setMinuteView(!minuteView)}>{selectMinute}</TimePickerItem>
+          {minuteView && (
+            <SelectList>
+              {minuteList?.map((minute) => (
+                <SelectItem
+                  key={minute}
+                  onClick={() => selectItemAction('minute', minute)}
+                  selected={minute === selectMinute}
+                >
+                  {minute}
+                </SelectItem>
+              ))}
+            </SelectList>
+          )}
+        </Wrapper>
+      </Container>
+    </Time>
   );
 }
 
-const Wrapper = styled.div`
+const Time = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 `;
 
-const TimePickerWrap = styled.div`
+const Icon = styled.p`
+  font-size: 2rem;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+`;
+
+const Wrapper = styled.div`
+  position: relative;
   width: 5rem;
+  height: 4rem;
+`;
+
+const TimePickerItem = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 4rem;
+  font-weight: ${fonts.bold};
+  color: ${colors.DarkGray};
+  border: 1px solid ${colors.LightPrimary};
+  border-radius: 0.5rem;
+  cursor: pointer;
+`;
+
+const SelectList = styled.div`
+  position: absolute;
+  top: 4.3rem;
+  left: 0;
+  width: 100%;
   height: 7rem;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  z-index: 10;
+  border-radius: 0.5rem;
+  border: 1px solid ${colors.LightPrimary};
+  background-color: ${colors.White};
 
   // 스크롤바 커스텀
   &::-webkit-scrollbar {
@@ -79,10 +141,17 @@ const SelectItem = styled.span<{ selected: Boolean }>`
   font-size: 1.5rem;
   padding: 1rem 0;
   text-align: center;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   color: ${(props) => (props.selected ? colors.DarkPrimary : colors.DarkGray)};
+  cursor: pointer;
 
   &:hover {
-    background-color: ${colors.LightGray};
+    background-color: ${colors.BackPrimary};
   }
+`;
+
+const Colon = styled.p`
+  font-size: 1.8rem;
+  font-weight: ${fonts.bold};
+  color: ${colors.Black};
 `;
