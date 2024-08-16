@@ -5,14 +5,23 @@ import styled from 'styled-components';
 import { colors } from '@/styles/colors';
 import { fonts } from '@/styles/fonts';
 
-export default function DatePicker() {
+interface Props {
+  date: string;
+  setDate: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function DatePicker({ date, setDate }: Props) {
   const today = dayjs().format('YYYY-MM-DD');
-  const nextYear = dayjs().add(1, 'year').get('y');
+
+  const selectDate = (event) => {
+    console.log(event.currentTarget.value);
+    setDate(event.currentTarget.value);
+  };
 
   return (
     <Date>
       <Icon>📅</Icon>
-      <DatePickerInput type="date" defaultValue={today} min={today} max={`${nextYear}-12-31`} />
+      <DatePickerInput type="date" defaultValue={date} min={today} onChange={selectDate} />
     </Date>
   );
 }
@@ -36,6 +45,7 @@ const DatePickerInput = styled.input`
   color: ${colors.DarkGray};
   font-weight: ${fonts.bold};
   font-size: 1.5rem;
+  text-align: center;
 
   // 인풋 클릭 영역을 전체 영역으로 변경 & 아이콘 삭제
   &::-webkit-calendar-picker-indicator {

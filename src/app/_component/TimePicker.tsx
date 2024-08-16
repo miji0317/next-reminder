@@ -5,7 +5,12 @@ import styled from 'styled-components';
 import { colors } from '@/styles/colors';
 import { fonts } from '@/styles/fonts';
 
-export default function TimePicker() {
+interface Props {
+  time: string;
+  setTime: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function TimePicker({ time, setTime }: Props) {
   const hourList: Array<number> = new Array(24).fill(0).map((_, i) => i);
   const minuteList: Array<string> = ['00', '30'];
 
@@ -17,6 +22,7 @@ export default function TimePicker() {
   const selectItemAction = (type: string, selectItem: any) => {
     type === 'hour' ? setSelectHour(selectItem) : setSelectMinute(selectItem);
     type === 'hour' ? setHourView(false) : setMinuteView(false);
+    setTime(`${selectHour}:${selectMinute}`);
   };
 
   return (
