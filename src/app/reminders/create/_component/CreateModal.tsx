@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
 import { fonts } from '@/styles/fonts';
@@ -12,12 +13,16 @@ import DatePicker from '@/app/_component/DatePicker';
 import TimePicker from '@/app/_component/TimePicker';
 
 export default function CreateModal() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const createType = searchParams.get('id') ? 'edit' : 'add';
+  console.log(searchParams.get('id'), createType);
+
   const today = dayjs().format('YYYY-MM-DD');
-  const now = dayjs().format('HH:mm');
 
   const [content, setContent] = useState<string>('');
   const [date, setDate] = useState<string>(today);
-  const [time, setTime] = useState<string>(now);
+  const [time, setTime] = useState<string>('0:00');
 
   useEffect(() => {
     console.log('content => ', content);

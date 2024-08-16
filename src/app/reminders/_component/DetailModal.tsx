@@ -2,7 +2,7 @@
 
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import styled from 'styled-components';
 import { fonts } from '@/styles/fonts';
 import { colors } from '@/styles/colors';
@@ -13,8 +13,10 @@ import Clock from '@/app/_component/icon/Clock';
 import ModalLayout from '@/app/_component/ModalLayout';
 
 export default function DetailModal() {
-  const router = useParams();
-  const remindId = router.id;
+  const params = useParams();
+  const router = useRouter();
+
+  const remindId = params.id;
   const [remind, setRemind] = useState<remindType>();
 
   // 날짜
@@ -37,6 +39,15 @@ export default function DetailModal() {
     setRemind(remindContent);
   }, []);
 
+  const editRemind = () => {
+    router.push(`/reminders/create?id=${remindId}`);
+  };
+
+  const deleteRemind = () => {
+    // TODO : 삭제
+    router.back();
+  };
+
   return (
     <ModalLayout>
       <ContentLayer>
@@ -46,6 +57,11 @@ export default function DetailModal() {
           {formatDate} {formatTime}
         </Date>
         <Content>{remind?.content}</Content>
+
+        <ButtonLayer>
+          <Button onClick={editRemind}>편집</Button>
+          <Button onClick={deleteRemind}>삭제</Button>
+        </ButtonLayer>
       </ContentLayer>
     </ModalLayout>
   );
@@ -77,4 +93,26 @@ const Date = styled.p`
   font-weight: ${fonts.normal};
   font-size: 1.3rem;
   color: ${colors.DarkPrimary};
+`;
+
+const ButtonLayer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
+const Button = styled.div`
+  flex: 1;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: ${fonts.normal};
+  color: ${colors.White};
+  background-color: ${colors.NormalPrimary};
+  border-radius: 1rem;
+  text-align: center;
+  line-height: 3rem;
+  margin-top: 1rem;
+  cursor: pointer;
 `;
